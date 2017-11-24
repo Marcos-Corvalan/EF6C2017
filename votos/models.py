@@ -26,15 +26,24 @@ class Candidato(models.Model):
     """
     #TODO Completar segun consideraciones del desarrollador
     En este comentario escribir por que se decide modelar de esta
-    forma la clase
+    forma la clase:
+    Se decide utilizar este tipo de modelo para la clase distrito 
+    porque es necesario saber el nombre del candidato, 
+    cuantos votos tiene y a que distrito pertenece.
     """
     pass
+    nombre = models.CharField('Nombre del candidato', max_length=50)
+    cantidad_votos = models.IntegerField('Cantidad de votos', default=0)
+    distrito =  models.ForeignKey(Votos, on_delete=models.CASCADE)
 
+    
+    def __str__(self):
+        return 'Candidato {}'.format(self.nombre)
 
 class Votos(models.Model):
     """
     #TODO Completar segun consideraciones del desarrollador
     En este comentario escribir por que se decide modelar de esta
-    forma la clase
+    forma la clase:
     """
     pass
